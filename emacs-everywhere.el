@@ -204,7 +204,7 @@ Never paste content when ABORT is non-nil."
               write-file-functions)
           (write-file buffer-file-name)
           (pp (buffer-string))
-          (call-process "xclip" nil nil nil "-selection" "clipboard" buffer-file-name))))
+          (call-process "xclip" nil nil nil "-selection" "primary" buffer-file-name))))
     (sit-for 0.01) ; prevents weird multi-second pause, lets clipboard info propagate
     (let ((window-id (emacs-everywhere-app-id emacs-everywhere-current-app)))
       (if (eq system-type 'darwin)
